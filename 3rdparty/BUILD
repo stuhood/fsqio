@@ -47,7 +47,7 @@ jar_library(
   ]
 )
 
-liftVer = '2.6.2'
+liftVer = '3.0.1'
 jar_library(
   name = 'lift-mongodb',
   tags = [

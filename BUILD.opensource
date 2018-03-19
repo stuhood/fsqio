@@ -1,6 +1,6 @@
 # Copyright 2016 Foursquare Labs Inc. All Rights Reserved.
 
-scala_version = '2.11.8'
+scala_version = '2.12.1'
 
 
 # NOTE: Now that we have full use of Ivy and target scopes, this should probably be adjusted.
@@ -40,7 +40,7 @@ target(name='scalac',
 jar_library(
   name = 'ammonite',
   jars = [
-    jar(org='com.lihaoyi', name = 'ammonite_2.11.8', rev='0.8.2')
+    jar(org='com.lihaoyi', name = 'ammonite_2.12.0', rev='0.8.2')
   ],
   tags = [
     'exempt',

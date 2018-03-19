@@ -1,6 +1,6 @@
 # Copyright 2015 Foursquare Labs Inc. All Rights Reserved.
 
-scala_version = '2.11.8'
+scala_version = '2.12.1'
 
 
 ### START Managed Dependencies START ###
@@ -91,7 +91,7 @@ jar_library(
     'fscommon',
   ],
   jars = [
-    scala_jar(org = 'com.typesafe.akka', name = 'akka-actor', rev = '2.3.11')
+    scala_jar(org = 'com.typesafe.akka', name = 'akka-actor', rev = '2.4.12')
   ],
 )
 
@@ -244,17 +244,6 @@ jar_library(
   ],
 )
 
-jar_library(
-  name = 'country-revgeo',
-  tags = [
-    'opensource',
-    'fscommon',
-  ],
-  jars = [
-    scala_jar(org = 'com.foursquare', name = 'country_revgeo', rev = '0.1a'),
-  ],
-)
-
 curator_rev = '2.9.1'
 jar_library(
   name = 'curator',
@@ -316,7 +305,7 @@ jar_library(
   ]
 )
 
-finagle_rev = '6.25.0'
+finagle_rev = '6.44.0'
 jar_library(
   name = 'finagle',
   tags = [
@@ -338,20 +327,6 @@ jar_library(
         exclude(org = 'log4j', name = 'log4j'),
       ],
     ),
-    scala_jar(org = 'com.twitter', name = 'finagle-httpx', rev = finagle_rev,
-      excludes = [
-        exclude(org="org.slf4j", name="slf4j-jdk14"),
-        exclude(org="org.slf4j", name="slf4j-log4j12"),
-        exclude(org = 'log4j', name = 'log4j'),
-      ],
-    ),
-    scala_jar(org = 'com.twitter', name = 'finagle-httpx-compat', rev = finagle_rev,
-      excludes = [
-        exclude(org="org.slf4j", name="slf4j-jdk14"),
-        exclude(org="org.slf4j", name="slf4j-log4j12"),
-        exclude(org = 'log4j', name = 'log4j'),
-      ],
-    ),
     scala_jar(org = 'com.twitter', name = 'finagle-stream', rev = finagle_rev,
       excludes = [
         exclude(org="org.slf4j", name="slf4j-jdk14"),
@@ -359,8 +334,7 @@ jar_library(
         exclude(org = 'log4j', name = 'log4j'),
       ],
     ),
-    scala_jar(org = 'com.twitter', name = 'finagle-kestrel', rev = finagle_rev),
-    scala_jar(org = 'com.twitter', name = 'finagle-kestrelx', rev = finagle_rev,
+    scala_jar(org = 'com.twitter', name = 'finagle-kestrel', rev = finagle_rev,
       excludes = [
         exclude(org="org.slf4j", name="slf4j-jdk14"),
         exclude(org="org.slf4j", name="slf4j-log4j12"),
@@ -389,13 +363,6 @@ jar_library(
       ],
     ),
     scala_jar(org = 'com.twitter', name = 'finagle-memcached', rev = finagle_rev,
-      excludes = [
-        exclude(org="org.slf4j", name="slf4j-jdk14"),
-        exclude(org="org.slf4j", name="slf4j-log4j12"),
-        exclude(org = 'log4j', name = 'log4j'),
-      ],
-    ),
-    scala_jar(org = 'com.twitter', name = 'finagle-memcachedx', rev = finagle_rev,
       excludes = [
         exclude(org="org.slf4j", name="slf4j-jdk14"),
         exclude(org="org.slf4j", name="slf4j-log4j12"),
@@ -545,7 +512,7 @@ jar_library(
     jar(org = 'com.fasterxml.jackson.core', name = 'jackson-annotations', rev = jackson_rev),
     jar(org = 'com.fasterxml.jackson.core', name = 'jackson-core', rev = jackson_rev),
     jar(org = 'com.fasterxml.jackson.core', name = 'jackson-databind', rev = jackson_rev),
-    scala_jar(org = 'com.fasterxml.jackson.module', name = 'jackson-module-scala', rev = jackson_rev),
+    scala_jar(org = 'com.fasterxml.jackson.module', name = 'jackson-module-scala', rev = '2.6.7.1'),
     jar(org = 'com.fasterxml.jackson.datatype', name = 'jackson-datatype-joda', rev = jackson_rev),
     jar(org = 'com.fasterxml.jackson.datatype', name = 'jackson-datatype-guava', rev = jackson_rev),
     jar(org = 'com.fasterxml.jackson.datatype', name = 'jackson-datatype-jdk8', rev = jackson_rev),
@@ -802,7 +769,7 @@ jar_library(
     'fscommon',
   ],
   jars = [
-    scala_jar(org = 'com.twitter', name = 'ostrich', rev = '9.8.0')
+    scala_jar(org = 'com.twitter', name = 'ostrich', rev = '9.24.0')
   ]
 )
 
@@ -894,7 +861,7 @@ jar_library(
     'fscommon',
   ],
   jars = [
-    jar(org = 'org.scala-lang', name = 'scala-reflect', rev = '2.11.8'),
+    jar(org = 'org.scala-lang', name = 'scala-reflect', rev = '2.12.1'),
   ],
 )
 
@@ -1200,7 +1167,7 @@ jar_library(
   ],
 )
 
-twitter_util_rev = '6.24.0'
+twitter_util_rev = '6.39.0'
 jar_library(
   name = 'twitter-util',
   tags = [
