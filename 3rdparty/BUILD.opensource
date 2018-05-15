@@ -41,7 +41,6 @@ managed_jar_dependencies(
     ':reflections',
     ':scalacheck',
     jar(org = 'org.scala-lang', name = 'scalap', rev = scala_version),
-    ':scalaz-stream',
     ':scalding',
     ':slf4j-api',
     ':slf4j-jcl',
@@ -73,16 +72,6 @@ managed_jar_dependencies(
   ],
 )
 
-jar_library(
-  name = 'scalaz-stream',
-  tags = [
-    'opensource',
-    'fscommon',
-  ],
-  jars = [
-    scala_jar(org = 'org.scalaz.stream', name = 'scalaz-stream', rev = '0.7.3a'),
-  ],
-)
 
 jar_library(
   name = 'akka',
@@ -522,17 +511,6 @@ jar_library(
 )
 
 jar_library(
-  name = 'jerkson',
-  tags = [
-    'opensource',
-    'fscommon',
-  ],
-  jars = [
-    scala_jar(org = 'com.gilt', name = 'jerkson', rev = '0.6.7'),
-  ],
-)
-
-jar_library(
   name = 'jline',
   tags = [
     'opensource',
@@ -774,7 +752,7 @@ jar_library(
 )
 
 
-parboiled_rev = '1.1.6'
+parboiled_rev = '1.1.8'
 jar_library(
   name = 'parboiled-scala',
   tags = [
@@ -894,20 +872,10 @@ jar_library(
     'fscommon',
   ],
   jars = [
-    scala_jar(org = 'org.scalacheck', name = 'scalacheck', rev = '1.10.1')
+    scala_jar(org = 'org.scalacheck', name = 'scalacheck', rev = '1.11.6')
   ]
 )
 
-jar_library(
-  name = 'scalaj-time',
-  tags = [
-    'opensource',
-    'fscommon',
-  ],
-  jars = [
-    scala_jar(org = 'org.scalaj', name = 'scalaj-time', rev = '0.8'),
-  ],
-)
 
 jar_library(
   name = 'scalate',
@@ -916,7 +884,7 @@ jar_library(
     'fscommon',
   ],
   jars = [
-    scala_jar(org = 'org.scalatra.scalate', name = 'scalate-core', rev = '1.7.1')
+    scala_jar(org = 'org.scalatra.scalate', name = 'scalate-core', rev = '1.8.0')
   ]
 )
 
@@ -1116,7 +1084,7 @@ jar_library(
     'fscommon',
   ],
   jars = [
-    scala_jar(org = 'org.slf4s', name = 'slf4s-api', rev = '1.7.13'),
+    scala_jar(org = 'org.slf4s', name = 'slf4s-api', rev = '1.7.25'),
   ]
 )
 
@@ -1127,7 +1095,7 @@ jar_library(
   ]
 )
 
-specs2_rev = '3.3.1'
+specs2_rev = '3.8.9'
 jar_library(
   name = 'specs2',
   tags = [
@@ -1135,7 +1103,13 @@ jar_library(
     'fscommon',
   ],
   jars = [
-    scala_jar(org = 'org.specs2', name = 'specs2', rev = specs2_rev),
+    scala_jar(
+      org = 'org.specs2', name = 'specs2', rev = specs2_rev,
+      # Depends on specs2-cats for 2.12 - which AFAICT is not on maven central?
+      excludes = [
+        exclude(org='org.specs2', name='specs2-cats_2.12'),
+      ],
+    ),
     scala_jar(org = 'org.specs2', name = 'specs2-core', rev = specs2_rev),
     scala_jar(org = 'org.specs2', name = 'specs2-junit', rev = specs2_rev),
     scala_jar(org = 'org.specs2', name = 'specs2-matcher', rev = specs2_rev),
