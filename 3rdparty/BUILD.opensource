@@ -806,7 +806,7 @@ jar_library(
     'fscommon',
   ],
   jars = [
-    scala_jar(org = 'com.rockymadden.stringmetric', name = 'stringmetric-core', rev = '0.27.4')
+    jar(org='org.scala-lang', name = 'scala-library', rev=scala_version)
   ]
 )
 
